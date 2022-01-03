@@ -1,6 +1,7 @@
 import {useParams} from "react-router-dom";
 import {useEffect, useState} from "react";
-import Movie from "../component/Movie";
+import Movie from "../../component/Movie/Movie";
+import Nav from "../../component/Nav/Nav";
 
 function Detail(){
     const [loading,setLoading] = useState(true);
@@ -17,6 +18,7 @@ function Detail(){
     },[]);
     return (
         <>
+            <Nav />
             {loading? <h1>loading</h1>: null }
             <Movie 
                 id={movie.id}
