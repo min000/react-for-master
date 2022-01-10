@@ -47,7 +47,8 @@ const Container = styled.div`
   display:flex;
   width:200px;
   height:200px;
-  background-color:red;
+  background-color:${(props) => props.theme.bgColor};
+  color:${(props) => props.theme.textColor};
   justify-content:center;
   align-items: center;
   animation: ${rotationAnimation} 1s linear infinite;
