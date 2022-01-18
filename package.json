@@ -47,5 +47,8 @@
       "last 1 safari version"
     ]
   },
-  "homepage": "https://min000.github.io/react-for-master"
+  "homepage": "https://min000.github.io/react-for-master",
+  "devDependencies": {
+    "@types/react-router-dom": "^5.3.2"
+  }
 }
