@@ -1,5 +1,4 @@
 import styled from 'styled-components';
-import { useEffect, useState } from "react";
 import { Link, Route, Switch, useLocation, useParams, useRouteMatch } from 'react-router-dom';
 import Price from './Price';
 import Chart from './Chart';
@@ -157,19 +156,6 @@ function Coin(){
   );
   const loading = infoLoading || tickersLoading;
 
-  // useEffect(() => {
-  //   (async () => {
-  //     const infoData = await (
-  //       await fetch(`https://api.coinpaprika.com/v1/coins/${coinId}`)
-  //     ).json();
-  //     const priceData = await (
-  //       await fetch(`https://api.coinpaprika.com/v1/tickers/${coinId}`)
-  //     ).json();
-  //     setInfo(infoData);
-  //     setPriceInfo(priceData);
-  //     setLoading(false);
-  //   })();
-  // }, [coinId]);
   return (
     <Container>
       <Header>
@@ -219,7 +205,7 @@ function Coin(){
               <Price />
             </Route>
             <Route path={`/:coinId/chart`}>
-              <Chart />
+              <Chart coinId={coinId}/>
             </Route>
           </Switch>
         </>
