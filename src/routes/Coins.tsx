@@ -2,6 +2,7 @@ import styled from 'styled-components';
 import {Link} from 'react-router-dom';
 import { useQuery } from 'react-query';
 import { fetchCoins } from '../api';
+import Loader from '../component/Loader';
 
 const Container = styled.div`
   padding: 0px 20px;
@@ -42,11 +43,6 @@ const Title = styled.h1`
   color: ${(props) => props.theme.accentColor};
 `;
 
-const Loader = styled.span`
-  text-align: center;
-  display: block;
-`;
-
 const Img = styled.img`
   width: 25px;
   height:25px;
@@ -70,7 +66,7 @@ function Coins(){
           <Header>
             <Title>코인</Title>
           </Header>
-          {isLoading ? <Loader>Loading ...</Loader>
+          {isLoading ? <Loader/>
             : (
                 <CoinsList>
                     {data?.slice(0,100).map(coin => 
@@ -78,7 +74,10 @@ function Coins(){
                             <Link
                               to={{
                                 pathname: `/${coin.id}`,
-                                state: { name: coin.name },
+                                state: { 
+                                  name: coin.name, 
+                                  symbol: coin.symbol 
+                                },
                               }}
                             >
                               <Img
