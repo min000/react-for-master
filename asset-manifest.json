@@ -1,17 +1,17 @@
 {
   "files": {
-    "main.js": "/react-for-master/static/js/main.98b16e0f.chunk.js",
-    "main.js.map": "/react-for-master/static/js/main.98b16e0f.chunk.js.map",
+    "main.js": "/react-for-master/static/js/main.c7af3bc8.chunk.js",
+    "main.js.map": "/react-for-master/static/js/main.c7af3bc8.chunk.js.map",
     "runtime-main.js": "/react-for-master/static/js/runtime-main.fbed42ec.js",
     "runtime-main.js.map": "/react-for-master/static/js/runtime-main.fbed42ec.js.map",
-    "static/js/2.6caa941e.chunk.js": "/react-for-master/static/js/2.6caa941e.chunk.js",
-    "static/js/2.6caa941e.chunk.js.map": "/react-for-master/static/js/2.6caa941e.chunk.js.map",
+    "static/js/2.7d5ee43e.chunk.js": "/react-for-master/static/js/2.7d5ee43e.chunk.js",
+    "static/js/2.7d5ee43e.chunk.js.map": "/react-for-master/static/js/2.7d5ee43e.chunk.js.map",
     "index.html": "/react-for-master/index.html",
-    "static/js/2.6caa941e.chunk.js.LICENSE.txt": "/react-for-master/static/js/2.6caa941e.chunk.js.LICENSE.txt"
+    "static/js/2.7d5ee43e.chunk.js.LICENSE.txt": "/react-for-master/static/js/2.7d5ee43e.chunk.js.LICENSE.txt"
   },
   "entrypoints": [
     "static/js/runtime-main.fbed42ec.js",
-    "static/js/2.6caa941e.chunk.js",
-    "static/js/main.98b16e0f.chunk.js"
+    "static/js/2.7d5ee43e.chunk.js",
+    "static/js/main.c7af3bc8.chunk.js"
   ]
 }
