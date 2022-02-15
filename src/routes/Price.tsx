@@ -48,11 +48,10 @@ interface ExchangeData {
   "last_updated": string
 }
 interface PriceProps {
-  coinSymbol: string,
   coinId:string
 }
 
-function Price({coinSymbol,coinId}:PriceProps) {
+function Price({coinId}:PriceProps) {
   const {isLoading: exchangeLoading, data: exchangeData} = useQuery<ExchangeData[]>("symbol",fetchExchange);
   return (
     <Overview>

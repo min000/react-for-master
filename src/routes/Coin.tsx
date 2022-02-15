@@ -6,8 +6,6 @@ import { fetchCoinInfo, fetchCoinTickers } from "../api";
 import { useQuery } from 'react-query';
 import BackBtn from '../component/BackBtn';
 import Loader from '../component/Loader';
-import { symbol } from 'prop-types';
-
 
 const Container = styled.div`
   padding: 0px 20px;
@@ -208,7 +206,7 @@ function Coin(){
           </Tabs>
           <Switch>
             <Route path={`/:coinId/price`}>
-              <Price coinSymbol={infoData!.symbol} coinId={coinId}/>
+              <Price coinId={coinId}/>
             </Route>
             <Route path={`/:coinId/chart`}>
               <Chart coinId={coinId}/>
