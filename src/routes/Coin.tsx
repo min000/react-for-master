@@ -4,7 +4,8 @@ import Price from './Price';
 import Chart from './Chart';
 import { fetchCoinInfo, fetchCoinTickers } from "../api";
 import { useQuery } from 'react-query';
-
+import BackBtn from '../component/BackBtn';
+import Loader from '../component/Loader';
 
 const Container = styled.div`
   padding: 0px 20px;
@@ -23,11 +24,6 @@ const Header = styled.header`
 const Title = styled.h1`
   font-size: 48px;
   color: ${(props) => props.theme.accentColor};
-`;
-
-const Loader = styled.span`
-  text-align: center;
-  display: block;
 `;
 
 const Overview = styled.div`
@@ -81,6 +77,7 @@ interface RouteParams{
 
 interface RouteState{
     name: string;
+    symbol : string;
 }
 
 interface InfoData {
@@ -143,6 +140,7 @@ function Coin(){
   const { state } = useLocation<RouteState>();
   // const [info, setInfo] = useState<InfoData>();
   // const [priceInfo, setPriceInfo] = useState<PriceData>();
+
   const priceMatch = useRouteMatch("/:coinId/price");
   const chartMatch = useRouteMatch("/:coinId/chart");
 
@@ -166,8 +164,11 @@ function Coin(){
           {state?.name ? state.name : loading ? "Loading..." : infoData?.name}
       </Title>
       </Header>
+      <Link to="/">
+        <BackBtn />
+      </Link>
       {loading ? (
-        <Loader>Loading...</Loader>
+        <Loader />
       ) : (
         <>
           <Overview>
@@ -205,7 +206,7 @@ function Coin(){
           </Tabs>
           <Switch>
             <Route path={`/:coinId/price`}>
-              <Price />
+              <Price coinId={coinId}/>
             </Route>
             <Route path={`/:coinId/chart`}>
               <Chart coinId={coinId}/>

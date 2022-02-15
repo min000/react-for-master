@@ -30,13 +30,28 @@ function Chart({coinId}:ChartProps) {
           "Loading chart..."
         ) : (
           <ApexChart
-            type="line"
+            type="candlestick"
             series={[
               {
-                name: "Price",
-                data: data?.map((price) => price.close),
-              },
+                data: data?.map(price => {
+                  return {
+                    x: price.time_open,
+                    y: [
+                      price.open.toFixed(2),
+                      price.high.toFixed(2),
+                      price.low.toFixed(2),
+                      price.close.toFixed(2)
+                    ]
+                  };
+                })
+              }
             ]}
+            // series={[
+            //   {
+            //     name: "Price",
+            //     data: data?.map((price) => price.close),
+            //   },
+            // ]}
             options={{
               theme: {
                 mode: "dark",
@@ -49,11 +64,11 @@ function Chart({coinId}:ChartProps) {
                 },
                 background: "transparent",
               },
-              grid: { show: false },
-              stroke: {
-                curve: "smooth",
-                width: 4,
-              },
+            //   grid: { show: false },
+            //   stroke: {
+            //     curve: "smooth",
+            //     width: 4,
+            //   },
               yaxis: {
                 show: false,
               },
@@ -64,16 +79,24 @@ function Chart({coinId}:ChartProps) {
                 type: "datetime",
                 categories: data?.map((price) => price.time_close),
               },
-              fill: {
-                type: "gradient",
-                gradient: { gradientToColors: ["#0be881"], stops: [0, 100] },
-              },
-              colors: ["#0fbcf9"],
-              tooltip: {
-                y: {
-                  formatter: (value) => `$${value.toFixed(2)}`,
-                },
-              },
+              plotOptions: {
+                candlestick: {
+                  colors: {
+                    upward: '#0be881',
+                    downward: '#0fbcf9'
+                  }
+                }
+              }
+            //   fill: {
+            //     type: "gradient",
+            //     gradient: { gradientToColors: ["#0be881"], stops: [0, 100] },
+            //   },
+            //   colors: ["#0fbcf9"],
+            //   tooltip: {
+            //     y: {
+            //       formatter: (value) => `$${value.toFixed(2)}`,
+            //     },
+            //   },
             }}
           />
         )}
